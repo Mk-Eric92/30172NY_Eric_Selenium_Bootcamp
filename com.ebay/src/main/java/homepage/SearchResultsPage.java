@@ -1,4 +1,4 @@
-package search_page;
+package homepage;
 
 import base.BasePage;
 import org.openqa.selenium.By;
@@ -8,16 +8,17 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class SearchResultPage extends BasePage {
+public class SearchResultsPage extends BasePage {
 
-    @FindBy(xpath = "//div[@class='srp-controls__row-cells']//h1/span[2]")
+    @FindBy (xpath = "//div[@class='srp-controls__row-cells']//h1/span[2]")
     public WebElement textSearchTerm;
 
-    public SearchResultPage() {
+    public SearchResultsPage() {
         PageFactory.initElements(driver, this);
     }
 
     public List<WebElement> getSearchResults() {
         return driver.findElements(By.xpath("//ul[@class='srp-results srp-list clearfix']/li[@data-viewport]"));
     }
+
 }

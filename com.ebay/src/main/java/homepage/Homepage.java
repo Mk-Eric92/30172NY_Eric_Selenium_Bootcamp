@@ -1,33 +1,43 @@
 package homepage;
 
 import base.BasePage;
-import ebay.pom.searchresultpage.SearchResultPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage extends BasePage {
-    @FindBy(id = "gh-ac")
+public class Homepage extends BasePage {
+
+    @FindBy (id = "gh-ac")
     public WebElement inputSearchBar;
 
     @FindBy (id = "gh-btn")
     public WebElement buttonSearchSubmit;
 
-    public HomePage() {
+    public Homepage() {
         PageFactory.initElements(driver, this);
     }
 
     public void inputSearchTerm(String searchTerm) {
-        sendKeysToElement(inputSearchBar, searchTerm);
+        clearTextSendKeys(inputSearchBar, searchTerm);
     }
+
+    private void clearTextSendKeys(WebElement inputSearchBar, String searchTerm) {
+    }
+
 
     public void clickSearchSubmitButton() {
-        safeClickOnElement(buttonSearchSubmit);
+        clickElement(buttonSearchSubmit);
     }
 
-    public SearchResultPage doSearch(String searchTerm) {
+    private void clickElement(WebElement buttonSearchSubmit) {
+    }
+
+
+    public SearchResultsPage doSearch(String searchTerm) {
         inputSearchTerm(searchTerm);
         clickSearchSubmitButton();
 
-        return new SearchResultPage();
+        return new SearchResultsPage();
     }
+
+}

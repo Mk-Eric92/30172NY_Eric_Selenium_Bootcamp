@@ -49,7 +49,7 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//*[@id=\"q\"]")
     public WebElement zipInputField;
 
-    @FindBy(xpath = "//*[@id=\"search-form\"]/div[1]/button/svg/g/g/path")
+    @FindBy(xpath = "//button[@type='submit']//*[name()='svg']")
     public WebElement locatorSearchButton;
 
     public StoreLocatorPage locatingNearStore(){
